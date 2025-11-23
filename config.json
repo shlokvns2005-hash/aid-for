@@ -1,0 +1,21 @@
+{
+  "project": {
+    "name": "Reading Aid for Dyslexic People",
+    "version": "1.0.0",
+    "description": "AI-powered reading aid that extracts text from PDFs/images, simplifies complex language, and provides text-to-speech functionality"
+  },
+  "pipeline": {
+    "step1": "OCR Extraction - Extract text from PDF or image files",
+    "step2": "Text Simplification - Use T5/BART models to simplify complex text",
+    "step3": "Text-to-Speech - Convert simplified text to audio"
+  },
+  "models": {
+    "ocr": "Tesseract OCR",
+    "simplification": ["T5-small", "BART"],
+    "tts": "pyttsx3"
+  },
+  "supported_formats": {
+    "input": ["PDF", "JPG", "JPEG", "PNG", "BMP", "TIFF", "Plain Text"],
+    "output": ["Simplified Text", "Audio File", "MP3"]
+  }
+}
