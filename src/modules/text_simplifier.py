@@ -1,32 +1,49 @@
 """
 Text Simplification Module
-Simplifies complex text using T5-small and BART models
+Simplifies complex text using rule-based and optional AI models
 Implements FleschKincaid ease level based simplification
 """
 
-from transformers import pipeline, T5Tokenizer, T5ForConditionalGeneration
-from transformers import BartForConditionalGeneration, BartTokenizer
 import logging
 from typing import List
+import re
 
 logger = logging.getLogger(__name__)
 
+# Try to import transformers, but make it optional
+try:
+    from transformers import T5Tokenizer, T5ForConditionalGeneration
+    from transformers import BartForConditionalGeneration, BartTokenizer
+    HAS_TRANSFORMERS = True
+except ImportError:
+    HAS_TRANSFORMERS = False
+
 
 class TextSimplifier:
-    """Simplify text using various AI models"""
+    """Simplify text using rule-based and optional AI models"""
     
-    def __init__(self, model_type: str = "t5"):
+    def __init__(self, model_type: str = "basic"):
         """
         Initialize Text Simplifier
         
         Args:
-            model_type: Type of model to use ("t5" or "bart")
+            model_type: Type of model to use ("basic", "t5", or "bart")
+                       Falls back to "basic" if transformers not available
         """
         self.model_type = model_type
-        self._load_model()
+        self.model = None
+        self.tokenizer = None
+        
+        if model_type != "basic":
+            self._load_model()
     
     def _load_model(self):
-        """Load the selected model and tokenizer"""
+        """Load the selected AI model and tokenizer"""
+        if not HAS_TRANSFORMERS:
+            logger.warning(f"Transformers not available, using basic simplification instead")
+            self.model_type = "basic"
+            return
+            
         try:
             if self.model_type == "t5":
                 self.tokenizer = T5Tokenizer.from_pretrained("t5-small")
@@ -37,24 +54,28 @@ class TextSimplifier:
                 self.model = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
                 logger.info("BART model loaded successfully")
             else:
-                raise ValueError(f"Unsupported model type: {self.model_type}")
+                logger.warning(f"Unsupported model type: {self.model_type}, using basic")
+                self.model_type = "basic"
         except Exception as e:
-            logger.error(f"Error loading model: {str(e)}")
-            raise
+            logger.warning(f"Error loading AI model ({e}), falling back to basic simplification")
+            self.model_type = "basic"
     
     def simplify_text(self, text: str, max_length: int = 100, num_beams: int = 4) -> str:
         """
-        Simplify complex text using the loaded model
+        Simplify complex text using the loaded model or basic rules
         
         Args:
             text: The text to simplify
             max_length: Maximum length of simplified text
-            num_beams: Number of beams for beam search
+            num_beams: Number of beams for beam search (ignored for basic mode)
             
         Returns:
             Simplified text
         """
         try:
+            if self.model_type == "basic":
+                return self._simplify_basic(text)
+            
             if self.model_type == "t5":
                 input_text = f"simplify: {text}"
             else:  # BART
@@ -73,8 +94,29 @@ class TextSimplifier:
             logger.info("Text simplified successfully")
             return simplified_text
         except Exception as e:
-            logger.error(f"Error simplifying text: {str(e)}")
-            raise
+            logger.warning(f"Error simplifying text with AI model: {str(e)}, using basic simplification")
+            return self._simplify_basic(text)
+    
+    def _simplify_basic(self, text: str) -> str:
+        """Basic rule-based text simplification"""
+        # Break into sentences
+        sentences = re.split(r'(?<=[.!?])\s+', text)
+        simplified = []
+        
+        for sentence in sentences:
+            sentence = sentence.strip()
+            if not sentence:
+                continue
+                
+            # Remove very long clauses
+            if len(sentence.split()) > 20:
+                # Try to split at conjunctions
+                parts = re.split(r'\s+(and|but|or|because)\s+', sentence)
+                simplified.extend([p.strip() for p in parts if p.strip() and p not in ['and', 'but', 'or', 'because']])
+            else:
+                simplified.append(sentence)
+        
+        return ' '.join(simplified)
     
     def simplify_sentences(self, sentences: List[str], max_length: int = 100) -> List[str]:
         """
@@ -93,8 +135,8 @@ class TextSimplifier:
                 simple_sent = self.simplify_text(sentence, max_length)
                 simplified.append(simple_sent)
             except Exception as e:
-                logger.warning(f"Could not simplify sentence: {sentence}. Error: {str(e)}")
-                simplified.append(sentence)  # Keep original if simplification fails
+                logger.warning(f"Could not simplify sentence. Using basic simplification.")
+                simplified.append(self._simplify_basic(sentence))
         
         return simplified
     
