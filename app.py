@@ -15,7 +15,9 @@ sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 from modules.ocr_extractor import OCRExtractor
 from modules.text_simplifier import TextSimplifier
+from modules.text_simplifier import TextSimplifier
 from modules.text_to_speech import TextToSpeech
+from config import OCR_CONFIG
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -70,19 +72,12 @@ with st.sidebar:
     model_type = st.radio(
         "Select Simplification Model:",
         options=["T5-small", "BART"],
-        help="T5: Better for specific task training. BART: Better for general text generation"
+        help="T5: Fast summarization. BART: High-quality simplification (DistilBART-CNN)"
     )
     
     # Text-to-Speech settings
     st.subheader("Text-to-Speech Settings")
-    speech_rate = st.slider(
-        "Speech Rate (WPM):",
-        min_value=50,
-        max_value=300,
-        value=150,
-        step=10,
-        help="Words per minute"
-    )
+    # Speech rate moved to Listen tab
     speech_volume = st.slider(
         "Volume:",
         min_value=0.0,
@@ -161,7 +156,7 @@ with tab1:
         st.info("💡 Tip: Use high-quality images for better text extraction")
     
     # Initialize OCR extractor
-    ocr = OCRExtractor()
+    ocr = OCRExtractor(tesseract_path=OCR_CONFIG["tesseract_path"])
     
     if input_method == "Upload PDF":
         st.subheader("Upload PDF File")
@@ -191,7 +186,7 @@ with tab1:
             col1, col2 = st.columns(2)
             
             with col1:
-                st.image(image_file, use_column_width=True, caption="Uploaded Image")
+                st.image(image_file, use_container_width=True, caption="Uploaded Image")
             
             with col2:
                 with st.spinner("🖼️ Extracting text from image..."):
@@ -248,13 +243,23 @@ with tab2:
         model_map = {"T5-small": "t5", "BART": "bart"}
         selected_model = model_map[model_type]
         
+        
         if st.button("🤖 Simplify Text", type="primary", key="simplify_btn"):
             with st.spinner(f"Simplifying text using {model_type}..."):
                 try:
                     # Initialize simplifier
+                    st.info(f"Initializing {model_type} model...")
                     simplifier = TextSimplifier(model_type=selected_model)
                     
+                    # Check if model actually loaded
+                    if simplifier.model_type == "basic" and selected_model != "basic":
+                        st.warning(f"⚠️ {model_type} model failed to load. Using basic simplification instead.")
+                        st.info("💡 Try restarting Streamlit: Press Ctrl+C and run 'streamlit run app.py' again")
+                    else:
+                        st.success(f"✅ {model_type} model loaded successfully!")
+                    
                     # Split and simplify
+                    st.info("Processing text...")
                     st.session_state.simplified_text = simplifier.split_and_simplify(
                         st.session_state.extracted_text,
                         chunk_size=max_length
@@ -267,8 +272,18 @@ with tab2:
                     
                     st.success("✅ Text simplified successfully!")
                     
+                    # Show which model was actually used
+                    if simplifier.model_type == "basic":
+                        st.info(f"ℹ️ Used: Basic rule-based simplification")
+                    else:
+                        st.info(f"ℹ️ Used: {model_type} AI model")
+                    
                 except Exception as e:
                     st.error(f"❌ Error simplifying text: {str(e)}")
+                    st.error(f"Error type: {type(e).__name__}")
+                    with st.expander("Show full error details"):
+                        import traceback
+                        st.code(traceback.format_exc())
         
         # Display results
         if st.session_state.simplified_text:
@@ -312,43 +327,84 @@ with tab3:
     else:
         text_to_speak = st.session_state.simplified_text if st.session_state.simplified_text else st.session_state.extracted_text
         
-        # Initialize TTS
+        # Initialize session state for audio path if not exists
+        if 'audio_path' not in st.session_state:
+            st.session_state.audio_path = None
+        if 'last_tts_config' not in st.session_state:
+            st.session_state.last_tts_config = {}
+        
+        # Speech Rate Control (Visual only, value used in generation)
+        col_rate, col_vol = st.columns(2)
+        with col_rate:
+            speech_rate = st.slider(
+                "Speech Rate (Words per Minute)", 
+                min_value=50, 
+                max_value=300, 
+                value=150, 
+                step=10,
+                help="Adjust how fast the text is spoken"
+            )
+        
+        # Determine voice ID
         voice_id = 1 if voice_gender == "Female" else 0
-        tts = TextToSpeech(rate=speech_rate, volume=speech_volume, voice_id=voice_id)
         
-        col1, col2, col3 = st.columns(3)
+        # Audio Generation Logic
+        current_config = {
+            "text": text_to_speak,
+            "rate": speech_rate,
+            "volume": speech_volume,
+            "voice_id": voice_id
+        }
         
-        with col1:
-            if st.button("▶️ Play Audio", type="primary"):
-                with st.spinner("🔊 Playing audio..."):
+        # Check if we need to regenerate (if config changed or no audio yet)
+        should_generate = (
+            st.session_state.audio_path is None or 
+            not os.path.exists(st.session_state.audio_path) or
+            st.session_state.last_tts_config != current_config
+        )
+        
+        if should_generate:
+            try:
+                # Initialize TTS with selected rate
+                # Note: We rely on the caching/persistence of the file system
+                import time
+                timestamp = int(time.time())
+                output_filename = f"simplified_audio_{timestamp}.mp3"
+                output_path = str(Path("output") / output_filename)
+                
+                # Ensure output directory exists
+                Path("output").mkdir(exist_ok=True)
+                
+                # Cleanup old files if needed to save space? 
+                # For now, let's just keep the new one and reference it.
+                # Ideally we delete the previous one tracked in session state
+                if st.session_state.audio_path and os.path.exists(st.session_state.audio_path):
                     try:
-                        tts.speak(text_to_speak)
-                        st.success("✅ Audio played successfully!")
-                    except Exception as e:
-                        st.error(f"❌ Error playing audio: {str(e)}")
+                        os.remove(st.session_state.audio_path)
+                    except:
+                        pass # Ignore cleanup errors
+                
+                tts = TextToSpeech(rate=speech_rate, volume=speech_volume, voice_id=voice_id)
+                tts.save_to_file(text_to_speak, output_path)
+                
+                st.session_state.audio_path = output_path
+                st.session_state.last_tts_config = current_config.copy()
+                
+            except Exception as e:
+                st.error(f"❌ Error generating audio: {str(e)}")
         
-        with col2:
-            if st.button("⏸️ Pause"):
-                st.info("Audio paused")
-        
-        with col3:
-            if st.button("💾 Save Audio"):
-                with st.spinner("💾 Saving audio file..."):
-                    try:
-                        output_path = "output/simplified_audio.mp3"
-                        tts.save_to_file(text_to_speak, output_path)
-                        st.success(f"✅ Audio saved to {output_path}")
-                        
-                        # Provide download link
-                        with open(output_path, "rb") as audio_file:
-                            st.download_button(
-                                label="📥 Download Audio",
-                                data=audio_file,
-                                file_name="simplified_audio.mp3",
-                                mime="audio/mpeg"
-                            )
-                    except Exception as e:
-                        st.error(f"❌ Error saving audio: {str(e)}")
+        # Display Audio Player if path exists
+        if st.session_state.audio_path and os.path.exists(st.session_state.audio_path):
+            st.audio(st.session_state.audio_path, format="audio/mp3")
+            
+            # Download button
+            with open(st.session_state.audio_path, "rb") as audio_file:
+                st.download_button(
+                    label="📥 Download Audio",
+                    data=audio_file,
+                    file_name="simplified_audio.mp3",
+                    mime="audio/mpeg"
+                )
         
         # Text preview
         st.subheader("Text to be Spoken:")

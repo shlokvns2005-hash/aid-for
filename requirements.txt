@@ -1,9 +1,10 @@
 streamlit
 pytesseract
 pillow
-pdf2image
+pypdfium2
 transformers
 torch
+sentencepiece
 pyttsx3
 pydub
 numpy

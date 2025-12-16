@@ -5,7 +5,11 @@ Handles extraction of text from PDF and image files
 
 import pytesseract
 from PIL import Image
-from pdf2image import convert_from_path
+try:
+    import pypdfium2 as pdfium
+except ImportError:
+    pdfium = None
+    
 from pathlib import Path
 import logging
 
@@ -23,7 +27,7 @@ class OCRExtractor:
             tesseract_path: Path to tesseract executable (optional)
         """
         if tesseract_path:
-            pytesseract.pytesseract.pytesseract_cmd = tesseract_path
+            pytesseract.pytesseract.tesseract_cmd = tesseract_path
     
     def extract_from_image(self, image_path: str) -> str:
         """
@@ -38,6 +42,11 @@ class OCRExtractor:
         try:
             image = Image.open(image_path)
             text = pytesseract.image_to_string(image)
+            
+            # Clean text: replace newlines with spaces and strip
+            text = text.replace('\n', ' ').strip()
+            text = " ".join(text.split())
+            
             logger.info(f"Successfully extracted text from {image_path}")
             return text
         except Exception as e:
@@ -54,14 +63,31 @@ class OCRExtractor:
         Returns:
             Extracted text from all pages of the PDF
         """
-        try:
-            images = convert_from_path(pdf_path, dpi=200)
-            full_text = ""
+        if pdfium is None:
+            raise ImportError("pypdfium2 is not installed. Please install it with 'pip install pypdfium2'")
             
-            for page_num, image in enumerate(images):
-                page_text = pytesseract.image_to_string(image)
-                full_text += f"\n--- Page {page_num + 1} ---\n{page_text}"
-                logger.info(f"Extracted text from page {page_num + 1}")
+        try:
+            pdf = pdfium.PdfDocument(pdf_path)
+            text_parts = []
+            
+            for i in range(len(pdf)):
+                page = pdf[i]
+                # Render page to image (scale=2.0 for better quality ~144dpi, scale=3.0 ~216dpi)
+                bitmap = page.render(scale=3.0)
+                pil_image = bitmap.to_pil()
+                
+                page_text = pytesseract.image_to_string(pil_image)
+                
+                # Clean text: replace newlines with spaces and strip
+                cleaned_text = page_text.replace('\n', ' ').strip()
+                if cleaned_text:
+                    text_parts.append(cleaned_text)
+                
+                logger.info(f"Extracted text from page {i + 1}")
+            
+            # Join all parts with a single space and remove extra whitespace
+            full_text = " ".join(text_parts)
+            full_text = " ".join(full_text.split())
             
             logger.info(f"Successfully extracted text from {pdf_path}")
             return full_text

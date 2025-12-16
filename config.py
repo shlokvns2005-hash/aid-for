@@ -23,7 +23,7 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 # ============================================================================
 OCR_CONFIG = {
     # Tesseract path (set to None for automatic detection)
-    "tesseract_path": None,  # Windows: r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    "tesseract_path": r'C:\Program Files\Tesseract-OCR\tesseract.exe',
     
     # PDF conversion DPI (higher = better quality but slower)
     "pdf_dpi": 200,

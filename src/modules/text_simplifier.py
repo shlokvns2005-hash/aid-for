@@ -50,9 +50,12 @@ class TextSimplifier:
                 self.model = T5ForConditionalGeneration.from_pretrained("t5-small")
                 logger.info("T5-small model loaded successfully")
             elif self.model_type == "bart":
-                self.tokenizer = BartTokenizer.from_pretrained("facebook/bart-base")
-                self.model = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
-                logger.info("BART model loaded successfully")
+                # Use a distilled BART model fine-tuned for summarization
+                # This is much better than raw bart-base for simplification
+                model_name = "sshleifer/distilbart-cnn-12-6"
+                self.tokenizer = BartTokenizer.from_pretrained(model_name)
+                self.model = BartForConditionalGeneration.from_pretrained(model_name)
+                logger.info(f"BART model ({model_name}) loaded successfully")
             else:
                 logger.warning(f"Unsupported model type: {self.model_type}, using basic")
                 self.model_type = "basic"
@@ -77,8 +80,10 @@ class TextSimplifier:
                 return self._simplify_basic(text)
             
             if self.model_type == "t5":
-                input_text = f"simplify: {text}"
+                # T5 uses "summarize: " prefix for summarization/simplification
+                input_text = f"summarize: {text}"
             else:  # BART
+                # BART models don't need a prefix, but we need a model fine-tuned for summarization
                 input_text = text
             
             inputs = self.tokenizer.encode(input_text, return_tensors="pt", max_length=512, truncation=True)
@@ -90,7 +95,51 @@ class TextSimplifier:
                 early_stopping=True
             )
             
-            simplified_text = self.tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+            simplified_text = self.tokenizer.decode(summary_ids[0], skip_special_tokens=True).strip()
+            
+            # Debug: Write to file and print
+            debug_file = "bart_debug.txt"
+            with open(debug_file, "a", encoding="utf-8") as f:
+                f.write(f"\n{'='*80}\n")
+                f.write(f"BART Debug Output - {__import__('datetime').datetime.now()}\n")
+                f.write(f"{'='*80}\n")
+                f.write(f"Raw BART output length: {len(simplified_text)} chars\n")
+                f.write(f"Raw BART output:\n{simplified_text}\n")
+                f.write(f"\n")
+            
+            # Check for input duplication using fuzzy matching
+            # BART sometimes repeats the input text before generating the summary
+            from difflib import SequenceMatcher
+            
+            # Use stripped text for comparison
+            clean_text = text.strip()
+            
+            matcher = SequenceMatcher(None, clean_text, simplified_text)
+            match = matcher.find_longest_match(0, len(clean_text), 0, len(simplified_text))
+            
+            # If match starts at beginning of both strings and covers > 90% of input
+            if match.a == 0 and match.b == 0 and match.size / len(clean_text) > 0.9:
+                # Check if there is significant content after the duplication
+                if len(simplified_text) > match.size + 10:
+                    logger.info(f"Detected input duplication (coverage: {match.size / len(text):.2f}). Removing it.")
+                    simplified_text = simplified_text[match.size:].strip()
+                    
+                    # Remove leading punctuation that might be left over (like " .")
+                    import string
+                    simplified_text = simplified_text.lstrip(string.punctuation + string.whitespace)
+                    
+                    with open(debug_file, "a", encoding="utf-8") as f:
+                        f.write(f"✓ Removed duplication. New output:\n{simplified_text}\n")
+            
+            # Additional check: if the simplified text is very similar to input, it might be a failed simplification
+            if len(simplified_text.strip()) == 0:
+                logger.warning("Model returned empty output, using basic simplification")
+                return self._simplify_basic(text)
+            
+            with open(debug_file, "a", encoding="utf-8") as f:
+                f.write(f"\nFinal simplified text:\n{simplified_text}\n")
+                f.write(f"{'='*80}\n\n")
+            
             logger.info("Text simplified successfully")
             return simplified_text
         except Exception as e:

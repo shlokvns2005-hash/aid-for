@@ -1,0 +1,403 @@
+
+================================================================================
+BART Debug Output - 2025-12-16 16:05:16.108492
+================================================================================
+Raw BART output length: 143 chars
+Raw BART output:
+photosynthesis is an extraordinarily complex biochemical process. plants convert light energy into chemical energy stored in glucose molecules.
+
+Input length: 22 words
+Output length: 18 words
+Output starts with input? False
+
+Final simplified text:
+photosynthesis is an extraordinarily complex biochemical process. plants convert light energy into chemical energy stored in glucose molecules.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:05:30.219363
+================================================================================
+Raw BART output length: 334 chars
+Raw BART output:
+ Quantum mechanics describes the physical properties of nature at the scale of atoms and subatomic particles . Quantum physics is a fundamental theory in physics that describes the world's most complex structures and objects . Quantum mechanics is a theory that describes how atoms and molecules interact in a quantum state of light .
+
+Input length: 23 words
+Output length: 54 words
+Output starts with input? False
+
+Final simplified text:
+ Quantum mechanics describes the physical properties of nature at the scale of atoms and subatomic particles . Quantum physics is a fundamental theory in physics that describes the world's most complex structures and objects . Quantum mechanics is a theory that describes how atoms and molecules interact in a quantum state of light .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:08:11.804688
+================================================================================
+Raw BART output length: 375 chars
+Raw BART output:
+ Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Input length: 22 words
+Output length: 56 words
+Output starts with input? False
+
+Final simplified text:
+ Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:10:11.554957
+================================================================================
+Raw BART output length: 319 chars
+Raw BART output:
+ The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+Input length: 22 words
+Output length: 50 words
+Output starts with input? False
+
+Final simplified text:
+ The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:14:12.332545
+================================================================================
+Raw BART output length: 319 chars
+Raw BART output:
+ The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+ The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:14:54.614819
+================================================================================
+Raw BART output length: 375 chars
+Raw BART output:
+ Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+
+Final simplified text:
+ Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:15:52.812023
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:19:31.656208
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:24:00.081483
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:36:06.819502
+================================================================================
+Raw BART output length: 117 chars
+Raw BART output:
+the party of the first part reserves the right to terminate this agreement effective immediately upon written notice.
+
+
+Final simplified text:
+the party of the first part reserves the right to terminate this agreement effective immediately upon written notice.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:36:34.837563
+================================================================================
+Raw BART output length: 361 chars
+Raw BART output:
+The party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notwithstanding the aforementioned stipulations, the parties of the two parties can terminate the agreement . The parties of both parties have a right not to terminate their agreement, unless they receive written notice of their termination .
+
+
+Final simplified text:
+The party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notwithstanding the aforementioned stipulations, the parties of the two parties can terminate the agreement . The parties of both parties have a right not to terminate their agreement, unless they receive written notice of their termination .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:38:20.566707
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:42:00.858860
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:42:38.319472
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:45:05.464025
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:46:22.009268
+================================================================================
+Raw BART output length: 157 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy, which is subsequently stored in the bonds of glucose molecules .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy, which is subsequently stored in the bonds of glucose molecules .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:47:43.575712
+================================================================================
+Raw BART output length: 157 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy, which is subsequently stored in the bonds of glucose molecules .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy, which is subsequently stored in the bonds of glucose molecules .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:48:16.636337
+================================================================================
+Raw BART output length: 167 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice .
+
+
+Final simplified text:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:50:09.282939
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:50:43.210603
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:54:54.042774
+================================================================================
+Raw BART output length: 301 chars
+Raw BART output:
+The Principle of Relativity, a cornerstone in the Laws of Physics, states that the laws of physics remain constant for all non- accelerating observers, irrespective of their relative motion . This is a cornerstone of the principles of physics, and the laws are constant for non-accelerated observers .
+
+✓ Removed duplication. New output:
+This is a cornerstone of the principles of physics, and the laws are constant for non-accelerated observers .
+
+Final simplified text:
+This is a cornerstone of the principles of physics, and the laws are constant for non-accelerated observers .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:56:04.183399
+================================================================================
+Raw BART output length: 303 chars
+Raw BART output:
+Special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light . It introduces the concept that the laws of physics are the same for all observers in uniform motion . Special relativity was introduced by Albert Einstein in 1905 .
+
+
+Final simplified text:
+Special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light . It introduces the concept that the laws of physics are the same for all observers in uniform motion . Special relativity was introduced by Albert Einstein in 1905 .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:56:10.320309
+================================================================================
+Raw BART output length: 308 chars
+Raw BART output:
+General relativity (1915) extends this framework to include acceleration and gravity . It proposes that massive objects cause a distortion in space-time, which is felt as gravity . General relativity also proposes that gravity is felt by massive objects causing an acceleration in space and time distortion .
+
+
+Final simplified text:
+General relativity (1915) extends this framework to include acceleration and gravity . It proposes that massive objects cause a distortion in space-time, which is felt as gravity . General relativity also proposes that gravity is felt by massive objects causing an acceleration in space and time distortion .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:57:50.969401
+================================================================================
+Raw BART output length: 137 chars
+Raw BART output:
+special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light.
+
+
+Final simplified text:
+special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 16:57:52.342672
+================================================================================
+Raw BART output length: 147 chars
+Raw BART output:
+general relativity (1915) extends this framework to include acceleration and gravity. it proposes massive objects cause a distortion in space-time.
+
+
+Final simplified text:
+general relativity (1915) extends this framework to include acceleration and gravity. it proposes massive objects cause a distortion in space-time.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 17:11:20.890703
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 17:16:13.765769
+================================================================================
+Raw BART output length: 144 chars
+Raw BART output:
+photosynthesis process involves the transformation of light energy into chemical energy. the energy is stored in the bonds of glucose molecules.
+
+
+Final simplified text:
+photosynthesis process involves the transformation of light energy into chemical energy. the energy is stored in the bonds of glucose molecules.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 17:16:25.528646
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 17:20:30.133941
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
