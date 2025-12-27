@@ -9,3 +9,8 @@ pyttsx3
 pydub
 numpy
 python-dotenv
+torchaudio
+omegaconf
+scipy
+librosa
+soundfile

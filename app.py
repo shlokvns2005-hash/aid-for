@@ -77,6 +77,12 @@ with st.sidebar:
     
     # Text-to-Speech settings
     st.subheader("Text-to-Speech Settings")
+    tts_engine_type = st.radio(
+        "TTS Engine:",
+        options=["Standard", "Natural (HQ)"],
+        help="Standard: Robotic but fast. Natural: Human-like (First run downloads model)"
+    )
+    
     # Speech rate moved to Listen tab
     speech_volume = st.slider(
         "Volume:",
@@ -342,7 +348,7 @@ with tab3:
                 max_value=300, 
                 value=150, 
                 step=10,
-                help="Adjust how fast the text is spoken"
+                help="Adjust how fast the text is spoken. Natural voices use audio time-stretching for speed control."
             )
         
         # Determine voice ID
@@ -353,7 +359,8 @@ with tab3:
             "text": text_to_speak,
             "rate": speech_rate,
             "volume": speech_volume,
-            "voice_id": voice_id
+            "voice_id": voice_id,
+            "engine": tts_engine_type
         }
         
         # Check if we need to regenerate (if config changed or no audio yet)
@@ -384,7 +391,8 @@ with tab3:
                     except:
                         pass # Ignore cleanup errors
                 
-                tts = TextToSpeech(rate=speech_rate, volume=speech_volume, voice_id=voice_id)
+                engine_code = "natural" if tts_engine_type == "Natural (HQ)" else "standard"
+                tts = TextToSpeech(rate=speech_rate, volume=speech_volume, voice_id=voice_id, engine_type=engine_code)
                 tts.save_to_file(text_to_speak, output_path)
                 
                 st.session_state.audio_path = output_path

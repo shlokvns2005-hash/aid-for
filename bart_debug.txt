@@ -401,3 +401,217 @@ Final simplified text:
 The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
 ================================================================================
 
+
+================================================================================
+BART Debug Output - 2025-12-16 18:13:01.845956
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 18:31:42.438168
+================================================================================
+Raw BART output length: 137 chars
+Raw BART output:
+special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light.
+
+
+Final simplified text:
+special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 18:31:43.559550
+================================================================================
+Raw BART output length: 147 chars
+Raw BART output:
+general relativity (1915) extends this framework to include acceleration and gravity. it proposes massive objects cause a distortion in space-time.
+
+
+Final simplified text:
+general relativity (1915) extends this framework to include acceleration and gravity. it proposes massive objects cause a distortion in space-time.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 18:32:01.122165
+================================================================================
+Raw BART output length: 303 chars
+Raw BART output:
+Special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light . It introduces the concept that the laws of physics are the same for all observers in uniform motion . Special relativity was introduced by Albert Einstein in 1905 .
+
+
+Final simplified text:
+Special relativity (1905) addresses the physics of objects moving at constant speeds, particularly at speeds close to the speed of light . It introduces the concept that the laws of physics are the same for all observers in uniform motion . Special relativity was introduced by Albert Einstein in 1905 .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 18:32:06.770206
+================================================================================
+Raw BART output length: 308 chars
+Raw BART output:
+General relativity (1915) extends this framework to include acceleration and gravity . It proposes that massive objects cause a distortion in space-time, which is felt as gravity . General relativity also proposes that gravity is felt by massive objects causing an acceleration in space and time distortion .
+
+
+Final simplified text:
+General relativity (1915) extends this framework to include acceleration and gravity . It proposes that massive objects cause a distortion in space-time, which is felt as gravity . General relativity also proposes that gravity is felt by massive objects causing an acceleration in space and time distortion .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 18:36:55.014729
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 19:13:17.808385
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 19:20:04.114495
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 19:27:07.721288
+================================================================================
+Raw BART output length: 144 chars
+Raw BART output:
+photosynthesis process involves the transformation of light energy into chemical energy. the energy is stored in the bonds of glucose molecules.
+
+
+Final simplified text:
+photosynthesis process involves the transformation of light energy into chemical energy. the energy is stored in the bonds of glucose molecules.
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 19:27:58.416661
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 19:32:07.565482
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 19:48:49.170302
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-16 19:59:30.520980
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-17 10:18:32.260690
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-17 12:08:35.649121
+================================================================================
+Raw BART output length: 318 chars
+Raw BART output:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+
+
+Final simplified text:
+The photosynthesis process involves the transformation of light energy into chemical energy . This energy is subsequently stored in the bonds of glucose molecules . Photosynthesis is the process of converting light energy to chemical energy, which is then stored in molecules . The process is known as photosynthesis .
+================================================================================
+
+
+================================================================================
+BART Debug Output - 2025-12-17 12:11:28.869794
+================================================================================
+Raw BART output length: 374 chars
+Raw BART output:
+Notwithstanding the aforementioned stipulations, the party of the first part reserves the right to terminate this agreement effective immediately upon written notice . Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+✓ Removed duplication. New output:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+
+Final simplified text:
+Notify of the parties' intent to terminate the agreement, the parties of the two parties can terminate it effective immediately on written notice. Notify the termination of the agreement by writing notice .
+================================================================================
+
